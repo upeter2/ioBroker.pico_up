@@ -39,7 +39,7 @@ class PicoUp extends utils.Adapter {
 test(a,url)
 {          
 var request= require('request');
-request.post({url:'http://pvserver:pvwr@192.168.0.20'}, function(error, response, body){if (body) {
+request.post({url:url}, function(error, response, body){if (body) {
       //var parts_WP = body.split('\n')[1].split(' ')[0];
       var n= body.indexOf("aktuell</td>");
       var m = body.indexOf("</td>",n+20);
