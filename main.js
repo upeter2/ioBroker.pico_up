@@ -165,7 +165,7 @@ request.post({url:url}, function(error, response, body){if (body) {
 		// this.config:
 		//this.log.info("config option1: " + this.config.option1);
 		//this.log.info("config option2: " + this.config.option2);
-        this.log.info("IP: " + this.config.ip);
+	        //this.log.info("IP: " + this.config.ip);
 		/*
 		For every state in the system there has to be also an object of type state
 		Here a simple template for a boolean variable named "testVariable"
