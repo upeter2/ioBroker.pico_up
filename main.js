@@ -7,6 +7,8 @@
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 const utils = require("@iobroker/adapter-core");
+var schedule = require('node-schedule');
+var a,url;
 
 // Load your modules here, e.g.:
 // const fs = require("fs");
@@ -36,7 +38,7 @@ class PicoUp extends utils.Adapter {
      //uwe
           
 
-test(a,url)
+test()
 {          
 var request= require('request');
 request.post({url:url}, function(error, response, body){if (body) {
@@ -212,8 +214,12 @@ request.post({url:url}, function(error, response, body){if (body) {
 
 		//result = await this.checkGroupAsync("admin", "admin");
 		//this.log.info("check group user admin group admin: " + result);
-	        await this.test(this,this.config.ip);
-		this.stop();	        
+		a=this;
+		url=this.config.ip;	        
+		
+		await schedule.scheduleJob("*/"+this.config.intervall+" * * * *",this.test);
+		//await this.test(this,this.config.ip);
+		//this.stop();	        
         
         
         
